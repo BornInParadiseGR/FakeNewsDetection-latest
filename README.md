@@ -47,7 +47,7 @@ Step 2 — Executing the Docker Command Without Sudo
     
     su - ${USER}
 
-Step 3 -
+Step 3 - Install Images and run the project 
 
   l. step only need to change the access permissions for your WordPress Directory by using the following commands in the following path /Desktop/FakeNewsDetector/src :
     

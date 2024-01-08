@@ -12,24 +12,24 @@ Step 1 - First you have to install Docker at your Computer if you haven't alread
   1. First, update your existing list of packages:
 
     sudo apt update
-
-  3. Next, install a few prerequisite packages which let apt use packages over HTTPS:
+    
+  2. Next, install a few prerequisite packages which let apt use packages over HTTPS:
   
     sudo apt install apt-transport-https ca-certificates curl software-properties-common
      
-  4. Then add the GPG key for the official Docker repository to your system:
+  3. Then add the GPG key for the official Docker repository to your system:
 
     curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
       
-  5. Add the Docker repository to APT sources:
+  4. Add the Docker repository to APT sources:
 
     sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
       
-  6. Make sure you are about to install from the Docker repo instead of the default Ubuntu repo: 
+  5. Make sure you are about to install from the Docker repo instead of the default Ubuntu repo: 
 
     apt-cache policy docker-ce
 
-  7. Finally, install Docker:
+  6. Finally, install Docker:
   
     sudo apt install docker-ce
 

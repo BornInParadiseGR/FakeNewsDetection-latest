@@ -7,7 +7,8 @@ The aim of the fake news project is to help news readers to identify bias and mi
 © 2024 Fake News Detector
 
 How to Set up Docker
-Step 1 - First you have to install Docker at your Computer if you haven't already isntalled, following one by one these commands
+Step 1 - First you have to install Docker at your Computer if you haven't already isntalled, following one by one these commands. More instructions and details of
+how to download docker can be found here: https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04
    
   1. First, update your existing list of packages:
 

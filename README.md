@@ -47,13 +47,19 @@ Step 2 — Executing the Docker Command Without Sudo
     
     su - ${USER}
 
-  l step only need to change the access permissions for your WordPress Directory by using the followinf commands in the following path /Desktop/FakeNewsDetector/src :
+Step 3 -
+
+  l. step only need to change the access permissions for your WordPress Directory by using the following commands in the following path /Desktop/FakeNewsDetector/src :
     
     sudo chown -R www-data:www-data wp-content/plugins/
     sudo chmod 775 wp-content
     sudo chown -R www-data:www-data wp-content/
 
-  4. The wordpress index page is running on http://localhost:8000/
+  2. Now you need to run the final command to install the images and dockerize the project.
+
+    sudo docker compose up -d
+
+  3. After finishing installation make sure that all the containers are running. And the wordpress index page is running on http://localhost:8000/
 
 Thank for Installing and Enjoy Testing!
    

@@ -38,6 +38,14 @@ how to download docker can be found here: https://www.digitalocean.com/community
   
     sudo systemctl status docker
 
+  7. Install Docker Compose:
+
+    sudo apt-get install docker-compose-plugin
+
+  8. Verify that Docker Compose is installed correctly by checking the version:
+   
+    docker compose version
+
 Step 2 — Executing the Docker Command Without Sudo
 
   1. Avoid typing sudo whenever you run the docker command, add your username to the docker group:

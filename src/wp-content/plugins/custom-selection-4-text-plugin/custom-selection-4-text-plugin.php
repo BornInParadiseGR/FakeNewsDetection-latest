@@ -52,14 +52,14 @@ add_action('wp_enqueue_scripts', 'enqueue_custom_scripts');
 		
 		<div id="text-input-3">
 			<br>
-			<label for="text_file_field" >Upload File with Urls:</label>
+			<label for="text_file_field" >Upload File with Datas:</label>
 			 <!-- <input type="text" id="name" name="name" >  -->
 			<input type="file" name="csvFile" class="wpcf7-form-control wpcf7-textarea wpcf7-validates-as-required" aria-required="true" accept=".csv" name="text_file_field" id="text_file_field">
 		</div>
 
 		<div id="text-input-4">
 			<br>
-			<label for="url_file_field">Upload File with Datas:</label>
+			<label for="url_file_field">Upload File with Urls:</label>
 			 <!-- <input type="text" id="name" name="name" >  -->
 			<input type="file" name="csvFile" class="wpcf7-form-control wpcf7-textarea wpcf7-validates-as-required" aria-required="true" accept=".csv" name="url_file_field" id="url_file_field">
 		</div>
@@ -67,12 +67,15 @@ add_action('wp_enqueue_scripts', 'enqueue_custom_scripts');
 		<div id="messageContainer"></div>
         <input type="button" id="submitBtn" name="submit" value="Submit">
 	</form>
+	<img src="https://i.gifer.com/ZZ5H.gif" alt="" srcset="" id="loading-indicator">
 	<div id="form-response"></div>
 
 	<script>
         jQuery(document).ready(function ($) {
+			$("#loading-indicator").hide();
             $('#submitBtn').on("click", function (event) {
 				event.preventDefault();
+				$("#loading-indicator").show();
 				$('#form-response').html("");
 				var user_id = <?php echo get_current_user_id(); ?>;
 				var data_type = $('#custom-select').val();
@@ -90,9 +93,11 @@ add_action('wp_enqueue_scripts', 'enqueue_custom_scripts');
 						contentType: 'application/json',
 						success: function (result) {
 							$('#form-response').html('Analysis result using'+result);
+							$("#loading-indicator").hide();
 						},
 						error: function (xhr, textStatus, errorThrown) {
-							$('#form-response').html('Error: ' + textStatus);
+							$('#form-response').html('Bad Data request: ' + textStatus);
+							$("#loading-indicator").hide();
 						}	
 					});	
 				} else if (data_type == 'data2') {
@@ -107,9 +112,11 @@ add_action('wp_enqueue_scripts', 'enqueue_custom_scripts');
 						contentType: 'application/json',
 						success: function (result) {
 							$('#form-response').html('Analysis result using'+result);
+							$("#loading-indicator").hide();
 						},
 						error: function (xhr, textStatus, errorThrown) {
-							$('#form-response').html('Error: ' + textStatus);
+							$('#form-response').html('Bad Data request: ' + textStatus);
+							$("#loading-indicator").hide();
 						}
 					});	
 				} else if (data_type == 'data3') {
@@ -143,6 +150,12 @@ add_action('wp_enqueue_scripts', 'enqueue_custom_scripts');
 								},
 								success: function(result) {
 									$('#form-response').html(result);
+									$("#loading-indicator").hide();
+									window.location.replace("/history");
+								},
+								error: function (xhr, textStatus, errorThrown) {
+									$('#form-response').html('Bad Data request: ' + textStatus);
+									$("#loading-indicator").hide();
 								}
 							});
 						};
@@ -181,6 +194,12 @@ add_action('wp_enqueue_scripts', 'enqueue_custom_scripts');
 								},
 								success: function(result) {
 									$('#form-response').html(result);
+									$("#loading-indicator").hide();
+									window.location.replace("/history");
+								},
+								error: function (xhr, textStatus, errorThrown) {
+									$('#form-response').html('Bad Data request: ' + textStatus);
+									$("#loading-indicator").hide();
 								}
 							});
 						};

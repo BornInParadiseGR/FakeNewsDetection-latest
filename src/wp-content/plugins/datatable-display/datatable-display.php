@@ -84,7 +84,8 @@ function display_flask_data_using_datatables() {
 					{
 						defaultContent: '<button class="go-to-analysis-btn">View more</button> <button class="delete-analysis-btn btn btn-danger">Delete</button>'
 					}
-				]
+				],
+				order: [[0, 'desc']]
 			});
 			table.on('click', '.go-to-analysis-btn', function (e) {
 				let data = table.row(e.target.closest('tr')).data();

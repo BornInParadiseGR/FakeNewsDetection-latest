@@ -153,7 +153,7 @@ def output_lable(n):
 import validators
 app = Flask(__name__)
 CORS(app)
-@app.route('/dataForm', methods=['GET','POST'])
+@app.route('/dataForm', methods=['POST'])
 def dataForm():
     try:
         json_data = request.get_json()
@@ -203,7 +203,7 @@ def dataForm():
         return jsonify({"error": "Failed to process data.", "details": str(e)}), 400
     
 
-@app.route('/urlForm', methods=['GET','POST'])
+@app.route('/urlForm', methods=['POST'])
 def urlForm():
     try:
         status = 0
@@ -411,7 +411,7 @@ def urlFileForm():
     responce.headers['Access-Control-Allow-Credentials'] = 'true'
     return responce
 
-@app.route('/deleteAnalysis', methods=['POST','GET'])
+@app.route('/deleteAnalysis', methods=['DELETE'])
 @cross_origin()
 def deleteAnalysis():
     analysis_id = request.args.get("analysis_id")
@@ -441,7 +441,7 @@ def getArticleFullContent():
     }
     return jsonify(data_array)
 
-@app.route('/getDbData', methods=['POST','GET'])
+@app.route('/getDbData', methods=['GET'])
 @cross_origin()
 def getDbData():
     user_id = request.args.get("user_id")
